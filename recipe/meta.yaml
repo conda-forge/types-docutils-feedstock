@@ -1,5 +1,5 @@
 {% set name = "types-docutils" %}
-{% set version = "0.20.0.20240125" %}
+{% set version = "0.20.0.20240126" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/types-docutils-{{ version }}.tar.gz
-  sha256: af760e311d89af3f8fb62543e85099d6fd9dc03b6d1a3bdaf669573675d58ad8
+  sha256: cc5a7eed463a0991f8e0affbfde7a7d89a31a296e68732cb3b31cf2cb44eea8d
 
 build:
   number: 0
