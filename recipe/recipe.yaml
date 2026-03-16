@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: types-docutils
-  version: 0.22.3.20260223
+  version: "0.22.3.20260316"
 
 package:
   name: ${{ name|lower }}
@@ -10,10 +10,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name | replace('-', '_') }}-${{ version }}.tar.gz
-  sha256: e90e868da82df615ea2217cf36dff31f09660daa15fc0f956af53f89c1364501
+  sha256: 8ef27d565b9831ff094fe2eac75337a74151013e2d21ecabd445c2955f891564
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
