@@ -1,21 +1,22 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/prefix-dev/recipe-format/main/schema.json
 schema_version: 1
 
 context:
-  name: types-docutils
   version: "0.22.3.20260316"
 
 package:
-  name: ${{ name|lower }}
+  name: types-docutils
   version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name | replace('-', '_') }}-${{ version }}.tar.gz
+  url: https://pypi.org/packages/source/t/types-docutils/types_docutils-${{ version }}.tar.gz
   sha256: 8ef27d565b9831ff094fe2eac75337a74151013e2d21ecabd445c2955f891564
 
 build:
   number: 0
   noarch: python
-  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  script:
+    - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
 
 requirements:
   host:
@@ -26,22 +27,23 @@ requirements:
     - python >=${{ python_min }}
 
 tests:
-  - requirements:
-      run:
-        - pip
-        - python ${{ python_min }}.*
-    script:
-      - pip check
-
   - package_contents:
       site_packages:
         - docutils-stubs/__init__.pyi
+  - requirements:
+      run:
+        - docutils
+        - mypy
+        - python ${{ python_min }}.*
+    script:
+      - mypy -p docutils
 
 about:
   summary: Typing stubs for docutils
   license: Apache-2.0 AND MIT
   license_file: LICENSE
-  homepage: https://github.com/python/typeshed
+  homepage: https://pypi.org/project/types-docutils
+  repository: https://github.com/python/typeshed/tree/main/stubs/docutils
 
 extra:
   recipe-maintainers:
