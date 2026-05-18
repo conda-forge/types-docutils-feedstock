@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "0.22.3.20260508"
+  version: "0.22.3.20260518"
 
 package:
   name: types-docutils
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/t/types-docutils/types_docutils-${{ version }}.tar.gz
-  sha256: f043dd1fffad161cb671b0e3bf593bb5229b8d40bf365ac7d8337296dc97e6bc
+  sha256: 2c45ba63a9ac64246335359b68fe9c27602926499c9b67caec3780745f6aadee
 
 build:
   number: 0
